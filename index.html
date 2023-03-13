@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js"></script>
+    <link rel="shortcut icon" href="icon.png" type="image/x-icon" />
+    <title>Blog Landing Page</title>
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous" />
+
+    <!-- Custom CSS -->
+    <style>
+      footer {
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        color: #ffffff;
+        text-align: center;
+        padding: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-primary bg-light">
+      <a class="navbar-brand" href="index.html">My Blog</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html"
+              >Home <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html"
+              >Sign In <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html"
+              >Sign Up <span class="sr-only">(current)</span></a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- End Navbar -->
+    <!-- Blog Cards -->
+    <div class="container my-5">
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <img src="html.jpg" class="card-img-top" alt="..." />
+            <div class="card-body text-center">
+              <h5 class="card-title" id="cardHead">HTML</h5>
+              <p class="card-text">Short Desctiption about HTML.</p>
+              <a href="blog-1.html" class="btn btn-primary">Read More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <img src="CSS.jpg" class="card-img-top" alt="..." />
+            <div class="card-body text-center">
+              <h5 class="card-title">CSS</h5>
+              <p class="card-text">Short Desctiption about CSS.</p>
+              <a href="blog-2.html" class="btn btn-primary">Read More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <img src="JS.png" class="card-img-top" alt="..." />
+            <div class="card-body text-center">
+              <h5 class="card-title">JS</h5>
+              <p class="card-text">Short description about JavaScript.</p>
+              <a href="blog-3.html" class="btn btn-primary">Read More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <img src="bootstrap.png" class="card-img-top" alt="..." />
+            <div class="card-body text-center">
+              <h5 class="card-title">BootStrap</h5>
+              <p class="card-text">Short description about BootStrap.</p>
+              <a href="blog-4.html" class="btn btn-primary">Read More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <img src="jquery.png" class="card-img-top" alt="..." />
+            <div class="card-body text-center">
+              <h5 class="card-title">jQuery</h5>
+              <p class="card-text">Short description jquery.</p>
+              <a href="blog-5.html" class="btn btn-primary">Read More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <img src="angular.jpg" class="card-img-top" alt="..." />
+            <div class="card-body text-center">
+              <h5 class="card-title">Angular</h5>
+              <p class="card-text">Short description about Angular.</p>
+              <a href="blog-6.html" class="btn btn-primary">Read More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <img src="React.png" class="card-img-top" alt="..." />
+            <div class="card-body text-center">
+              <h5 class="card-title">React JS</h5>
+              <p class="card-text">A short description about React JS.</p>
+              <a href="blog-7.html" class="btn btn-primary">Read More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <img src="github.png" class="card-img-top" alt="..." />
+            <div class="card-body text-center">
+              <h5 class="card-title">GitHub</h5>
+              <p class="card-text">Short description about GitHub.</p>
+              <a href="blog-8.html" class="btn btn-primary">Read More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <img src="linkedin.png" class="card-img-top" alt="..." />
+            <div class="card-body text-center">
+              <h5 class="card-title">linkedin</h5>
+              <p class="card-text">A short description about Linkedin.</p>
+              <a href="blog-9.html" class="btn btn-primary">Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Blog Cards -->
+
+    <!-- Footer -->
+    <footer class="bg-primary py-3">
+      <div class="container text-center">
+        <span>© 2023 My Blog. All rights reserved.</span>
+      </div>
+    </footer>
+    <!-- End Footer -->
+
+    <!-- Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNVeG6h"
+      crossorigin="anonymous"></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"></script>
+    <!-- End Bootstrap JS -->
+    <!-- Firebase Config -->
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js";
+      import {
+        getDatabase,
+        ref,
+        onValue,
+      } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-database.js";
+      const firebaseConfig = {
+        // Your web app's Firebase configuration
+        apiKey: "AIzaSyAMqSNkYB4tohRJ8kjtkSzhuQXw6_sePHo",
+        authDomain: "blog-system-c6a03.firebaseapp.com",
+        databaseURL: "https://blog-system-c6a03-default-rtdb.firebaseio.com",
+        projectId: "blog-system-c6a03",
+        storageBucket: "blog-system-c6a03.appspot.com",
+        messagingSenderId: "251029118075",
+        appId: "1:251029118075:web:2f903e412fb4fde13556de",
+      };
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const database = getDatabase();
+    </script>
+    <!-- Firebase Config End -->
+  </body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js"></script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="icon.png" type="image/x-icon" />
+    <title>blog</title>
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous" />
+
+    <!-- Custom CSS -->
+    <style>
+      footer {
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        color: #ffffff;
+        text-align: center;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-primary bg-light">
+      <a class="navbar-brand" href="index.html">My Blog</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html"
+              >Home <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html"
+              >Sign In <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html"
+              >Sign Up <span class="sr-only">(current)</span></a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- End Navbar -->
+
+    <div class="container mt-5 mb-5">
+      <h2>What is CSS?</h2>
+      <hr style="border-top: 1px solid #7c7676" />
+      <img
+        class="col-6 mt-5 mb-5 d-block mx-auto"
+        src="css blog.JPG"
+        alt="blog IMAGE" />
+      <p id="firstP1"></p>
+      <p id="firstP2"></p>
+      <h2>CSS Syntax:</h2>
+      <hr style="border-top: 1px solid #7c7676" />
+      <p id="secondP1"></p>
+      <p id="secondP2"></p>
+      <p id="secondP3"></p>
+      <p style="color: #7c7676" id="secondP4"></p>
+      <p id="secondP5"></p>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-primary py-3">
+      <div class="container text-center">
+        <span>© 2023 My Blog. All rights reserved.</span>
+      </div>
+    </footer>
+    <!-- End Footer -->
+
+    <!-- Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNVeG6h"
+      crossorigin="anonymous"></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"></script>
+    <!-- End Bootstrap JS -->
+    <!-- Firebase Config -->
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js";
+      import {
+        getDatabase,
+        ref,
+        onValue,
+      } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-database.js";
+
+      const firebaseConfig = {
+        // Your web app's Firebase configuration
+        apiKey: "AIzaSyAMqSNkYB4tohRJ8kjtkSzhuQXw6_sePHo",
+        authDomain: "blog-system-c6a03.firebaseapp.com",
+        databaseURL: "https://blog-system-c6a03-default-rtdb.firebaseio.com",
+        projectId: "blog-system-c6a03",
+        storageBucket: "blog-system-c6a03.appspot.com",
+        messagingSenderId: "251029118075",
+        appId: "1:251029118075:web:2f903e412fb4fde13556de",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const database = getDatabase();
+
+      const firstP1 = document.getElementById("firstP1");
+      const pRef1 = ref(database, "/firstP1");
+      onValue(pRef1, function (snapshot) {
+        firstP1.innerText = snapshot.val();
+      });
+      const firstP2 = document.getElementById("firstP2");
+      const pRef2 = ref(database, "/firstP2");
+      onValue(pRef2, function (snapshot) {
+        firstP2.innerText = snapshot.val();
+      });
+      const secondP1 = document.getElementById("secondP1");
+      const pRef3 = ref(database, "/secondP1");
+      onValue(pRef3, function (snapshot) {
+        secondP1.innerText = snapshot.val();
+      });
+      const secondP2 = document.getElementById("secondP2");
+      const pRef4 = ref(database, "/secondP2");
+      onValue(pRef4, function (snapshot) {
+        secondP2.innerText = snapshot.val();
+      });
+      const secondP3 = document.getElementById("secondP3");
+      const pRef5 = ref(database, "/secondP3");
+      onValue(pRef5, function (snapshot) {
+        secondP3.innerText = snapshot.val();
+      });
+      const secondP4 = document.getElementById("secondP4");
+      const pRef6 = ref(database, "/secondP4");
+      onValue(pRef6, function (snapshot) {
+        secondP4.innerText = snapshot.val();
+      });
+      const secondP5 = document.getElementById("secondP5");
+      const pRef7 = ref(database, "/secondP5");
+      onValue(pRef7, function (snapshot) {
+        secondP5.innerText = snapshot.val();
+      });
+    </script>
+
+    <!-- Firebase Config End -->
+  </body>
+</html>
